@@ -5,7 +5,7 @@ if ($_POST) {
     require_once '../controllers/RegistrationsController.php';
 
     $registrationsController = new RegistrationsController();
-    $resp = $registrationsController->create_registration($_POST);
+    $resp = $registrationsController->create_registrations($_POST);
 }
 
 ?>

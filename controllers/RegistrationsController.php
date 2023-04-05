@@ -4,10 +4,12 @@ require_once '../models/Registrations.php';
 
 class RegistrationsController
 {
-    public function show_registrations() {
-
+    public function show_registrations($request) {
+print_r($request);
+        $registrations = new Registrations();
+        return $registrations->show_registrations($request);
     }
-    public function create_registration($request)
+    public function create_registrations($request)
     {
         $file_name = $_FILES['image']['name'];
         $file_tmp = $_FILES['image']['tmp_name'];
@@ -33,7 +35,7 @@ class RegistrationsController
 
         if ($data['email'] && $data['name']) {
             $registration = new Registrations();
-            return $registration->create_registration($data);
+            return $registration->create_registrations($data);
         }
 
         return ['status' => false, 'message' => "Bad request!"];
